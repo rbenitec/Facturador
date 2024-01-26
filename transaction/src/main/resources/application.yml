@@ -1,0 +1,29 @@
+server:
+  port: 8101
+spring:
+  r2dbc:
+    url: r2dbc:mssql://LAPTOP-S0I071QI:1433/biller
+    username: sa
+    password: rjbc2095
+client:
+  config:
+    apis:
+      base-url: "http://localhost:"
+      customer-url: "8100/customer/save"
+    clientGenerico:
+      documentNumber: 77777777
+logging:
+  file:
+    name: /home/usrfc/mth-applications-dev/biller/log/transaction.log
+  level:
+    root: INFO
+    org:
+      springframework: INFO
+      hibernate: ERROR
+    store:
+      rbenitez:
+        biller:
+          transaction: DEBUG
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n"
